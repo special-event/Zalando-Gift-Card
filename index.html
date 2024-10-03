@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Event</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Stylish&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    
+    <!--zalando font-->
+    <link href="https://db.onlinewebfonts.com/c/dc01c5a7b33d02c93ba705928df57387?family=MaxWeb+W03+CondFat" rel="stylesheet" type="text/css"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffffff, #ffd6b9);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+            animation: bounceIn 1s ease-in-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .event-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            margin-bottom: 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+
+
+        .title {
+            color: #ff6900;
+            font-size: 25px;
+            font-family: "MaxWeb W03 CondFat", sans-serif;
+            font-weight: 200;
+            margin-bottom: 5px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            color: #d25600;
+            font-size: 20px;
+            font-family: "Stylish", sans-serif;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: slideIn 1.2s ease-in-out;
+            border-bottom: 2px dotted #d25600;
+        }
+
+        .description {
+            color: #333333;
+            font-size: 13px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .claim-button {
+            background-color: #ff6900;
+            color: #fff;
+            padding: 9px 52px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s, transform 0.1s;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+            
+        }
+
+        .claim-button:hover {
+            background: transparent;
+            border: 2px solid #ff6900;
+            color: #ff6900;
+            padding: 7px 50px;
+        }
+        
+        
+        .claim-button::after {
+         content: '';
+         position: absolute;
+         top: -50%;
+         left: -50%;
+         width: 200%;
+         height: 200%;
+         background: linear-gradient(to bottom right, rgba(255,255,255,0.25), rgba(255,255,255,0.0));
+         
+        transform: rotate(45deg);
+        animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+        0% { transform: translateX(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+
+        #time-remaining {
+            font-size: 24px;
+            font-family: "Stylish", sans-serif;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #4A406B;
+            text-transform: uppercase;
+        }
+
+        #countdown-container {
+            padding: 0 10px;
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .time-box {
+            font-size: 18px;
+            font-weight: bolder;
+            padding: 10px 5px;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            width: 40px;
+        }
+
+        
+
+        #days {
+            background-color: #FF4500;
+        }
+
+        #hours {
+            background-color: #32CD32;
+        }
+
+        #minutes {
+            background-color: #FFCA28;
+        }
+
+        #seconds {
+            background-color: #1E90FF;
+        }
+        
+        
+        #imgTop
+        {
+          position: absolute;
+          width: 100%;
+          top: -1px;
+          left: 0;
+          z-index: -1;
+        }
+
+
+        #imgBottom
+        {
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+
+        }
+        
+        #zalando
+        {
+          position: absolute;
+          width: 10px;
+          opacity: 0;
+        }
+    </style>
+</head>
+<body>
+  <img id="zalando" src="zalando.jpg">
+  
+    <img id="imgTop" src="img top.png">
+  
+    <div class="container">
+        <div class="card">
+            <img src="logo.png" alt="Event Image" class="event-image">
+            <h1 class="title">Zalando Gift Card</h1>
+            <p class="subtitle">Gewinnen Sie eine Zalando-Geschenkkarte im Wert von 500€!</p>
+            <p class="description" id="description"></p>
+            <a href="#" class="claim-button">Jetzt einlösen</a>
+
+            <div id="countdown-container">
+                <div id="time-remaining">Verbleibende Zeit</div>
+                <div id="countdown">
+                    <div id="days" class="time-box">00</div>
+                    <div id="hours" class="time-box">00</div>
+                    <div id="minutes" class="time-box">00</div>
+                    <div id="seconds" class="time-box">00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+      <img id="imgBottom" src="img bottom.png">
+    
+
+    <script type="text/javascript">
+    // Countdown timer
+    function startCountdown(duration) {
+        let timer = duration, days, hours, minutes, seconds;
+        setInterval(function () {
+            days = parseInt(timer / 86400, 10);
+            hours = parseInt((timer % 86400) / 3600, 10);
+            minutes = parseInt((timer % 3600) / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            document.getElementById('days').textContent = days < 10 ? "0" + days : days;
+            document.getElementById('hours').textContent = hours < 10 ? "0" + hours : hours;
+            document.getElementById('minutes').textContent = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById('seconds').textContent = seconds < 10 ? "0" + seconds : seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    // Initiate the countdown when page loads
+    window.onload = function () {
+        let timeInSeconds = 3600 * 24 * 0 + 3 * 3600 + 24 * 60 + 42; // 3 hours 24 minutes 42 seconds
+        startCountdown(timeInSeconds);
+    };
+    
+    // Typewriter effect for description
+    const description = "Herzlichen Glückwunsch! Sie haben eine Zalando-Geschenkkarte im Wert von 500€ gewonnen!! Schließen Sie die Umfrage ab und registrieren Sie sich, indem Sie auf die Schaltfläche (Jetzt einlösen) unten klicken, und Ihr Geschenk wird automatisch freigeschaltet! Verpassen Sie es nicht!";
+    let i = 0;
+    function typeWriter() {
+        if (i < description.length) {
+            document.getElementById("description").innerHTML += description.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);  // Adjust speed of typing
+        }
+    }
+    typeWriter();
+</script>
+
+</body>
+</html>
